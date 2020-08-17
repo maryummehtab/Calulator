@@ -1,0 +1,76 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/741035b037.js" crossorigin="anonymous"></script>
+  
+    
+    <link rel="stylesheet" href="{% static 'CalcApp/style.css' %}">
+    <title>{{name}}</title>
+</head>
+<body onkeypress="kbControl(event)">    
+    <div class="container-fluid">
+        <form action="." method="get" class="calc dark" id="myForm">
+            <div class="row">
+                <div class="col">
+                    <button class="round" id="LDToggle" onclick="toggleLightDark(event);">
+                        <i class="fas fa-sun"></i>
+                    </button>
+                    <button class="float-right no-bg-btn">
+                        <i class="fas fa-ellipsis-h"></i>
+                    </button>
+                </div>
+            </div>
+            <div class="row calc-panel d-flex flex-column text-right">
+                <div class="col" id="user-input" style="flex: 1;">{{query}}</div>
+                <div class="col" id="total" style="flex: 5;">{{result}}</div>
+                <input type="hidden" name="input" id="input-form">            
+                <input type="hidden" name="negate" id="negate">            
+            </div>
+            <div class="row">
+                <div class="col btn-calc btn-op"><a href="#" onclick="clearScreen()">AC</a></div>
+                <div class="col btn-calc btn-op"><a href="#" onclick="negate()">+/-</a></div>
+                <div class="col btn-calc btn-op"><a href="#" onclick="btnClick('%')">%</a></div>
+                <div class="col btn-calc btn-op"><a href="#" onclick="btnClick('/')">/</a></div>
+            </div>
+            <div class="row">
+                <div class="col btn-calc"><a href="#" onclick="btnClick('7')">7</a></div>
+                <div class="col btn-calc"><a href="#" onclick="btnClick('8')">8</a></div>
+                <div class="col btn-calc"><a href="#" onclick="btnClick('9')">9</a></div>
+                <div class="col btn-calc btn-op"><a href="#" onclick="btnClick('*')">*</a></div>
+            </div>
+            <div class="row">
+                <div class="col btn-calc"><a href="#" onclick="btnClick('4')">4</a></div>
+                <div class="col btn-calc"><a href="#" onclick="btnClick('5')">5</a></div>
+                <div class="col btn-calc"><a href="#" onclick="btnClick('6')">6</a></div>
+                <div class="col btn-calc btn-op"><a href="#" onclick="btnClick('-')">-</a></div>
+            </div>
+            <div class="row">
+                <div class="col btn-calc"><a href="#" onclick="btnClick('1')">1</a></div>
+                <div class="col btn-calc"><a href="#" onclick="btnClick('2')">2</a></div>
+                <div class="col btn-calc"><a href="#" onclick="btnClick('3')">3</a></div>
+                <div class="col btn-calc btn-op"><a href="#" onclick="btnClick('+')">+</a></div>
+            </div>
+            <div class="row">
+                <div class="col btn-calc"><a href="#" onclick="btnClick('0')">0</a></div>
+                <div class="col btn-calc"><a href="#" onclick="btnClick('.')">.</a></div>
+                <div class="col btn-calc"><a href="#" onclick="removeone()">DEL</a></div>
+                <div class="col btn-calc bg-green"><button class="w-100 h-100 no-bg-btn" type="submit">=</button></div>
+            </div>
+        </form>
+        {{indexed}}
+    </div>
+
+    <script src="{% static 'CalcApp/js.js' %}" ></script>
+</body>
+
+</html>
