@@ -21,30 +21,6 @@ def about(request):
         numbers = re.split(r'([+*/\-%])', val1)
         val = numbers
 
-        # get_indexes = lambda x, xs: [i for (y, i) in zip(xs, range(len(xs))) if x == y]
-
-        # index = get_indexes('.', numbers)
-
-        # newnumbers = []
-        # removed = 0
-        # num = []
-
-        # for i in index:
-        #     n = ''.join(numbers[i-1:i+2])
-        #     del newnumbers[i-1-(removed*2):i+2-(removed*2)]
-        #     removed += 1
-        #     newnumbers.append(float(n))
-        #     num.append(float(n))
-        #     for x in range(i + 2, len(numbers)):
-        #         if not x >= len(numbers):
-        #             newnumbers.append(numbers[x])
-
-        # if len(index) > 0:
-        #     numbers = newnumbers
-        # result = 0
-    
-        # if(len(num) >= 2):
-
         if(len(numbers) > 2):
             num1=float(numbers[0])
             num2=float(numbers[2])
